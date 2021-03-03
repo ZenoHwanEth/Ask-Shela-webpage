@@ -3,7 +3,8 @@ $(document).ready(function () {
 	//Widget Code
 	var bot = '<div class="chatCont" id="chatCont">' +
 		'<div class="bot_profile">' +
-		'<img src="img/happy.jpg" class="bot_p_img">' +
+		'<div class="top-col"></div>' +
+		'<img src="img/happy.jpg" class="bot_p_img">' +	
 		'<div class="close">' +
 		'<i class="fa fa-times" aria-hidden="true"></i>' +
 		'</div>' +

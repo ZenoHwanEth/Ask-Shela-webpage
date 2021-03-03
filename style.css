@@ -129,8 +129,8 @@ mybot .chatCont {
 mybot .close {
   position: absolute;
   right: 5px;
-  margin-top: -60px;
-  color: #868686;
+  margin-top: 15px;
+  color:black;
   font-size: 18px;
   cursor: pointer;
 }
@@ -145,11 +145,19 @@ mybot .bot_profile {
   z-index: 1000;
 }
 
+mybot .top-col {
+  position: absolute;
+  border-top-left-radius: 30px;
+  width: 500px;
+  height: 48px;
+  background-color: orange;
+}
+
 mybot .bot_p_img {
-  width: 80px;
+  position: absolute;
+  width: 90px;
   border-radius: 50%;
-  width: 80px;
-  border-radius: 50%;
+  left:45%;
   background: #fff;
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
 }
@@ -254,7 +262,7 @@ mybot .col-hgt {
   display: flex;
   align-items: center;
   float: left;
-  margin-right: 10px;
+  margin-right: 10%;
 }
 
 mybot .chat-txt {
@@ -413,7 +421,7 @@ mybot .suggestion span:last-child {
   }
 
   mybot .chatCont,
-  mybot .chatForm {
+  mybot .chatForm, mybot .bot_profile {
     width: 100%;
   }
 
