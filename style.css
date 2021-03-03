@@ -212,7 +212,7 @@ mybot .resultDiv .botResult:before {
 }
 
 mybot .resultDiv .userEnteredText {
-  background: #310065;
+  background: orange;
   float: right;
   color: #ffffff;
   border-radius: 3px;
@@ -235,7 +235,7 @@ mybot .resultDiv .userEnteredText:before {
   height: 0;
   border-top: 0px solid rgba(0, 0, 0, 0);
   border-bottom: 15px solid rgba(0, 0, 0, 0);
-  border-left: 15px solid #310065;
+  border-left: 15px solid orange;
   position: absolute;
   right: -15px;
   margin-top: -12px;
@@ -381,7 +381,7 @@ mybot .suggestion:before {
 
 mybot .suggestion .sugg-options {
   display: block;
-  background:#310065;
+  background:orange;
   color: #fff;
   text-align: center;
   padding: 5px;
