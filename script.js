@@ -22,7 +22,7 @@ $(document).ready(function () {
 		'<div class="profile_div">' +
 		'<div class="row">' +
 		'<div class="col-hgt col-sm-offset-2">' +
-		'<img src="happy.jpg" class="img-circle img-profile">' +
+		'<img src="img/happy.jpg" class="img-circle img-profile">' +
 		'</div><!--col-hgt end-->' +
 		'<div class="col-hgt">' +
 		'<div class="chat-txt">' +
