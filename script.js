@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+	var suggestion_toggle =false;
+	var input_disable_toggle = false;
 	//Widget Code
 	var bot = '<div class="chatCont" id="chatCont">' +
 		'<div class="bot_profile">' +
@@ -23,7 +25,7 @@ $(document).ready(function () {
 		'<div class="profile_div">' +
 		'<div class="row">' +
 		'<div class="col-hgt col-sm-offset-2">' +
-		'<img src="img/happy.jpg" class="img-circle img-profile">' +
+		'<img  id="chatbot_icon" src="img/happy.jpg" class="img-circle img-profile">' +
 		'</div><!--col-hgt end-->' +
 		'<div class="col-hgt">' +
 		'<div class="chat-txt">' +
@@ -49,6 +51,7 @@ $(document).ready(function () {
 		$('.chatCont').toggle();
 		$('.bot_profile').toggle();
 		$('.chatForm').toggle();
+		$('#result_div').empty();
 	});
 
 
@@ -65,6 +68,7 @@ $(document).ready(function () {
 			} else {
 				$("#chat-input").blur();
 				setUserResponse(text);
+				disableInputfield()
 				send(text);
 				e.preventDefault();
 				return false;
@@ -72,11 +76,18 @@ $(document).ready(function () {
 		}
 	});
 
+	// on click chatbot icon--------------------------------------------------------------------------------------
+	$('#chatbot_icon').on('click', function (e) {
+		disableInputfield()
+		send("hi");
+		showSpinner()
+		e.preventDefault();
+	});
+
 
 	//------------------------------------------- Call the RASA API--------------------------------------
 	function send(text) {
-
-
+		
 		$.ajax({
 			url: 'https://askshelabot.herokuapp.com/webhooks/rest/webhook', //  RASA API
 			type: 'POST',
@@ -95,6 +106,7 @@ $(document).ready(function () {
 						for (i = 0; i < Object.keys(data[j]).length; i++) {
 							if (Object.keys(data[j])[i] == "buttons") { //check if buttons(suggestions) are present.
 								addSuggestion(data[j]["buttons"])
+								suggestion_toggle = true;
 							}
 
 						}
@@ -141,6 +153,9 @@ $(document).ready(function () {
 				$(BotResponse).appendTo('#result_div');
 			}
 			scrollToBottomOfResults();
+			if(suggestion_toggle==false){
+				enableInputfield()
+			}
 			hideSpinner();
 		}, 500);
 	}
@@ -173,8 +188,14 @@ $(document).ready(function () {
 		$('.spinner').hide();
 	}
 
+	//--------------------------------------- Input-disable ----------------------------------------------
+	function disableInputfield(){
+		$("#chat-input").prop('disabled', true);
+	}
 
-
+	function enableInputfield(){
+		$("#chat-input").prop('disabled', false);
+	}
 
 	//------------------------------------------- Buttons(suggestions)--------------------------------------------------
 	function addSuggestion(textToAdd) {
@@ -196,6 +217,7 @@ $(document).ready(function () {
 		var text = this.innerText;
 		setUserResponse(text);
 		send(text);
+		suggestion_toggle=false;
 		$('.suggestion').remove();
 	});
 	// Suggestions end -----------------------------------------------------------------------------------------
