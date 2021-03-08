@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 	var suggestion_toggle =false;
-	var input_disable_toggle = false;
+
 	//Widget Code
 	var bot = '<div class="chatCont" id="chatCont">' +
 		'<div class="bot_profile">' +
@@ -79,6 +79,7 @@ $(document).ready(function () {
 	// on click chatbot icon--------------------------------------------------------------------------------------
 	$('#chatbot_icon').on('click', function (e) {
 		disableInputfield()
+		$('#result_div').empty();
 		send("hi");
 		showSpinner()
 		e.preventDefault();
@@ -121,10 +122,6 @@ $(document).ready(function () {
 				setBotResponse('error');
 			}
 		});
-
-
-
-
 
 	}
 

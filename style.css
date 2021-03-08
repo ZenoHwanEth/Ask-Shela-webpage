@@ -7,6 +7,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
+  background-color: grey;
 }
 
 * {
@@ -96,9 +97,59 @@ a:focus {
   color: #fb2323;
 }
 
+.header-bar{
+  text-align: center;
+}
+
+.body-bar{
+  margin: 20px 15% ;
+  text-align: center;
+  background-color: #47424a;
+  padding: 10px 10px ;
+  padding-bottom: 30px !important;
+}
+
+.panel{
+  border: white solid 1px;
+  background-color: #47424a;
+  padding: 10px;
+  color: #c16580;
+  margin: 2px 5%!important;
+  text-align:left;
+  font-size: 15px;
+}
+
+.title{
+  color:white;
+  margin: 20px 10px!important;
+}
+
+.btm-body-bar{
+  display: flex;
+  margin: 20px 15%;
+  align-items: stretch;
+}
+
+.btm-panel{
+  color: white;
+  display: inline-block;
+  padding: 5% 2%;
+  min-width: 20%;
+  text-align: center;
+}
+
+.btm-body-bar-2{
+  padding: 2% 2%;
+  background-color:#6E6A6F;
+  margin: 20px 15%;
+  text-align: center;
+  color: white;
+}
+
 /* Demo end */
-
-
+mybot {
+  background-color: gray;
+}
 
 /* MyBot */
 mybot.center .chatCont,
@@ -269,7 +320,7 @@ mybot .chat-txt {
   background: white;
   color: black;
   padding: 15px 15px;
-  border-radius: 50px;
+  opacity: 0;
 }
 
 /* Spinner start */
