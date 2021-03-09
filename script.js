@@ -101,13 +101,15 @@ $(document).ready(function () {
 			}),
 			success: function (data, textStatus, xhr) {
 
+				console.log(data)
 				if (Object.keys(data).length !== 0) {
-					for( j = 0 ;j <Object.keys(data).length ; j++){
-						if(typeof data[j]["custom"]["buttons"] != "undefined"){
-							addSuggestion(data[j]["custom"]["buttons"]);
-							suggestion_toggle = true;
+					for(j =0; j < Object.keys(data).length; j++)
+						for (i = 0; i < Object.keys(data[j]).length; i++) {
+							if (Object.keys(data[j])[i] == "buttons") { //check if buttons(suggestions) are present.
+								addSuggestion(data[j]["buttons"])
+							}
+
 						}
-					}
 				}
 				setBotResponse(data);
 
@@ -131,18 +133,17 @@ $(document).ready(function () {
 				$(BotResponse).appendTo('#result_div');
 			} else {
 
-				//if we get message from the bot succesfully
-				var msg = "";
-				for (var i = 0; i < val.length; i++) {
-					if (val[i]["custom"]["texts"]) {
-						for(var propName in val[i]["custom"]["texts"]){
-							msg += '<p class="botResult">' + val[i]["custom"]["texts"][propName] + '</p><div class="clearfix"></div>';
-						}
-					}
-					if (val[i]["custom"]["image"]) { //check if there are any images
-						msg += '<p class="botResult"><img  width="200" height="124" src="' + val[i]["custom"].image + '/"></p><div class="clearfix"></div>';
-					} 
+			//if we get message from the bot succesfully
+			var msg = "";
+			for (var i = 0; i < val.length; i++) {
+				if (val[i]["image"]) { //check if there are any images
+					msg += '<p class="botResult"><img  width="200" height="124" src="' + val[i].image + '/"></p><div class="clearfix"></div>';
+				} 
+				else if(val[i]["text"])	{
+					msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
 				}
+
+			}
 				BotResponse = msg;
 				$(BotResponse).appendTo('#result_div');
 			}
