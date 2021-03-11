@@ -122,7 +122,11 @@ $(document).ready(function () {
 
 	}
 
-
+	//--------------------------------------enlarge image model-------------------------------------
+	var span = document.getElementsByClassName("close_modal")[0];
+	span.onclick = function() {
+		document.getElementById("enlarge_modal").style.display = "none";
+	} 
 	//------------------------------------ Set bot response in result_div -------------------------------------
 	function setBotResponse(val) {
 		setTimeout(function () {
@@ -134,18 +138,28 @@ $(document).ready(function () {
 			} else {
 
 			//if we get message from the bot succesfully
-			var msg = "";
+			var hasimage=false;
 			for (var i = 0; i < val.length; i++) {
+				var msg = "";
+				
 				if (val[i]["image"]) { //check if there are any images
-					msg += '<p class="botResult"><img  width="200" height="124" src="' + val[i].image + '/"></p><div class="clearfix"></div>';
+					msg += '<p class="botResult"><img  id="imgur_img" width="200" height="124" src="' + val[i].image + '/"></p><div class="clearfix"></div>';
 				} 
 				else if(val[i]["text"])	{
 					msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
 				}
-
-			}
 				BotResponse = msg;
 				$(BotResponse).appendTo('#result_div');
+				
+			}
+
+			var enlarge_modal = document.getElementById("enlarge_modal");
+			var enlarge_img = document.getElementById("enlarge_img");
+			$('#result_div').on('click','#imgur_img',function(event){
+				enlarge_modal.style.display = "block";
+				enlarge_img.src =event.src;
+			})
+				
 			}
 			scrollToBottomOfResults();
 			if(suggestion_toggle==false){
@@ -194,7 +208,7 @@ $(document).ready(function () {
 
 	//------------------------------------------- Buttons(suggestions)--------------------------------------------------
 	function addSuggestion(textToAdd) {
-		setTimeout(function () {
+		setTimeout(function () {	
 			var suggestions = textToAdd;
 			var suggLength = textToAdd.length;
 			$('<p class="suggestion"></p>').appendTo('#result_div');
@@ -217,5 +231,7 @@ $(document).ready(function () {
 	});
 	// Suggestions end -----------------------------------------------------------------------------------------
 
+	
 
+	
 });
