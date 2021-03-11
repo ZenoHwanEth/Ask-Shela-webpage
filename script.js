@@ -157,7 +157,8 @@ $(document).ready(function () {
 			var enlarge_img = document.getElementById("enlarge_img");
 			$('#result_div').on('click','#imgur_img',function(event){
 				enlarge_modal.style.display = "block";
-				enlarge_img.src =event.src;
+				var src = $(this).attr('src');
+				enlarge_img.src =src;
 			})
 				
 			}
