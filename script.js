@@ -136,7 +136,6 @@ $(document).ready(function () {
 				var BotResponse = '<p class="botResult">' + val + '</p><div class="clearfix"></div>';
 				$(BotResponse).appendTo('#result_div');
 			} else {
-
 			//if we get message from the bot succesfully
 			var hasimage=false;
 			for (var i = 0; i < val.length; i++) {
@@ -215,7 +214,7 @@ $(document).ready(function () {
 			$('<p class="suggestion"></p>').appendTo('#result_div');
 			// Loop through suggestions
 			for (i = 0; i < suggLength; i++) {
-				$('<span class="sugg-options">' + suggestions[i].title + '</span>').appendTo('.suggestion');
+				$('<span class="sugg-options">' + suggestions[i].title + '<div style="display: none;">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
 			}
 			scrollToBottomOfResults();
 		}, 1000);
@@ -225,8 +224,9 @@ $(document).ready(function () {
 	// on click of suggestions get value and send to API.AI
 	$(document).on("click", ".suggestion span", function () {
 		var text = this.innerText;
+		var payload = this.firstElementChild.innerText;
 		setUserResponse(text);
-		send(text);
+		send(payload);
 		suggestion_toggle=false;
 		$('.suggestion').remove();
 	});
