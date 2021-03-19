@@ -493,6 +493,11 @@ mybot .suggestion .sugg-options {
   font-weight: bold;
 }
 
+mybot .sugg-options:hover {
+  background:orange;
+  color: white;
+}
+
 mybot .suggestion .sugg-title {
   font-size: 15px;
   font-weight: 300;
@@ -517,6 +522,8 @@ mybot .suggestion span:last-child {
   mybot .resultDiv .userEnteredText,
   mybot .resultDiv .botResult,
   mybot .suggestion {
+    text-align: justify;
+    text-justify: inter-word;
     width: 90%;
     margin-bottom: 20px;
   }
