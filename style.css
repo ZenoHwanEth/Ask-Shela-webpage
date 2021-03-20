@@ -285,6 +285,7 @@ mybot .resultDiv .botResult {
   white-space: pre-wrap;
   background: #fff;
   color: orange;
+  text-align: left;
   border-radius: 3px;
   padding: 12px;
   font-size: 14px;
@@ -452,13 +453,14 @@ mybot .spinner .bounce2 {
 
 /* Suggestions */
 mybot .suggestion {
+  display: flexbox;
   background: #fff;
   color: #666666;
   border-radius: 3px;
   padding: 12px;
   font-size: 14px;
   font-weight: 400;
-  width: 220px;
+  width: auto;
   float: left;
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
   margin-left: 5px;
@@ -480,17 +482,21 @@ mybot .suggestion:before {
 }
 
 mybot .suggestion .sugg-options {
-  display: block;
+  display: inline-flex;
   border: 2px solid orange;
   background:white;
   color: orange;
-  text-align: center;
+  text-align: left;
   padding: 5px;
   margin-bottom: 5px;
   cursor: pointer;
   border-radius: 10px;
   font-size: 14px;
   font-weight: bold;
+}
+
+mybot .sugg-options{
+  margin-left: 2px;
 }
 
 mybot .sugg-options:hover {
@@ -522,8 +528,6 @@ mybot .suggestion span:last-child {
   mybot .resultDiv .userEnteredText,
   mybot .resultDiv .botResult,
   mybot .suggestion {
-    text-align: justify;
-    text-justify: inter-word;
     width: 90%;
     margin-bottom: 20px;
   }
