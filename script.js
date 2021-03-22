@@ -18,7 +18,7 @@ $(document).ready(function () {
 		'<div class="bounce2"></div>' +
 		'<div class="bounce3"></div>' +
 		'</div>' +
-		'<input type="text" id="chat-input" autocomplete="off" placeholder="Start Typing here..."' + 'class="form-control bot-txt"/>' +
+		'<input type="text" id="chat-input" autocomplete="off" placeholder="Start Typing here..."' + 'class="form-control bot-txt" autofocus/>' +
 		'</div>' +
 		'</div><!--chatCont end-->' +
 
@@ -204,6 +204,7 @@ $(document).ready(function () {
 
 	function enableInputfield(){
 		$("#chat-input").prop('disabled', false);
+		$("#chat-input").focus();
 	}
 
 	//------------------------------------------- Buttons(suggestions)--------------------------------------------------
