@@ -101,7 +101,6 @@ $(document).ready(function () {
 			}),
 			success: function (data, textStatus, xhr) {
 
-				console.log(data)
 				if (Object.keys(data).length !== 0) {
 					for(j =0; j < Object.keys(data).length; j++)
 						for (i = 0; i < Object.keys(data[j]).length; i++) {
