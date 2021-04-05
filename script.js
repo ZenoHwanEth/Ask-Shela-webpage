@@ -214,7 +214,13 @@ $(document).ready(function () {
 			$('<p class="suggestion"></p>').appendTo('#result_div');
 			// Loop through suggestions
 			for (i = 0; i < suggLength; i++) {
-				$('<span class="sugg-options">' + suggestions[i].title + '<div style="display: none;">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
+
+				if(suggestions[i].title == "Main Menu")
+				{
+					$('<span class="sugg-options red">' + suggestions[i].title + '<div style="display: none; ">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
+				}else{
+					$('<span class="sugg-options">' + suggestions[i].title + '<div style="display: none;">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
+				}
 			}
 			scrollToBottomOfResults();
 		}, 1000);
