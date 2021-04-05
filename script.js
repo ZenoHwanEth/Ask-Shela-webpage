@@ -143,6 +143,9 @@ $(document).ready(function () {
 				if (val[i]["image"]) { //check if there are any images
 					msg += '<p class="botResult"><img  id="imgur_img" width="200" height="124" src="' + val[i].image + '/"></p><div class="clearfix"></div>';
 				} 
+				else if(val[i]["text"] == "I'm sorry, I didn't quite understand that. Could you rephrase?")	{
+					msg += '<p class="botResult">' + "Sorry I have no answer for this question, kindly email sheela@usm.my" + '</p><div class="clearfix"></div>';
+				}
 				else if(val[i]["text"])	{
 					msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
 				}
