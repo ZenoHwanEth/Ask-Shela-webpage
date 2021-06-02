@@ -1,5 +1,23 @@
 $(document).ready(function () {
 
+	// Your web app's Firebase configuration
+	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	var firebaseConfig = {
+		apiKey: "AIzaSyAgwbw9Pr8U8P4wuFPh5pXYLQTwa8bvc1U",
+		authDomain: "askshela-4e0e2.firebaseapp.com",
+		databaseURL: "https://askshela-4e0e2-default-rtdb.asia-southeast1.firebasedatabase.app",
+		projectId: "askshela-4e0e2",
+		storageBucket: "askshela-4e0e2.appspot.com",
+		messagingSenderId: "585895616708",
+		appId: "1:585895616708:web:fce980e7f3df5a10a72991",
+		measurementId: "G-9FTLSQTYSS"
+	};
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+	firebase.analytics();
+
+	var imageStorage = firebase.storage().ref().child('AskShela_resources');
+	
 	var suggestion_toggle =false;
 
 	//Widget Code
@@ -127,8 +145,8 @@ $(document).ready(function () {
 		document.getElementById("enlarge_modal").style.display = "none";
 	} 
 	//------------------------------------ Set bot response in result_div -------------------------------------
-	function setBotResponse(val) {
-		setTimeout(function () {
+	 function setBotResponse(val) {
+		setTimeout(async function () {
 
 			if ($.trim(val) == '' || val == 'error') { //if there is no response from bot or there is some error
 				val = 'Sorry I wasn\'t able to understand your Query. Let\' try something else!'
@@ -141,11 +159,23 @@ $(document).ready(function () {
 				var msg = "";
 				
 				if (val[i]["image"]) { //check if there are any images
-					msg += '<p class="botResult"><img  id="imgur_img" width="200" height="124" src="' + val[i].image + '/"></p><div class="clearfix"></div>';
+					var imageref = val[i]["image"];
+					var imagepath;
+					//check regrex begin with https:
+					if(/^https:/.test(imageref)){
+						imagepath = imageref
+					}else{
+					await imageStorage.child(imageref).getDownloadURL().then(
+						(url)=> {
+							imagepath = url
+							console.log(imagepath)
+						}
+					).catch((error) =>{
+						print(error)
+					});
+					}
+					msg += '<p class="botResult"><img  id="imgur_img" width="200" height="124" src="' + imagepath + '/"></p><div class="clearfix"></div>';
 				} 
-				else if(val[i]["text"] == "I'm sorry, I didn't quite understand that. Could you rephrase?")	{
-					msg += '<p class="botResult">' + "Sorry I have no answer for this question, kindly email <a href = \"mailto:sheela@usm.my\">sheela@usm.my</a>" + '</p><div class="clearfix"></div>';
-				}
 				else if(val[i]["text"])	{
 					msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
 				}
