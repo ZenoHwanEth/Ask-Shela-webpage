@@ -551,6 +551,19 @@ mybot .suggestion span:last-child {
     height: 70% !important;
   }
 
+  .profile_div{
+    right: 10px !important;
+    width: 100px !important;
+  }
+
+  .btm-body-bar{
+    display: block  !important; 
+  }
+
+  .btm-panel{
+    width: 100% !important;
+  }
+
 
 }
 
