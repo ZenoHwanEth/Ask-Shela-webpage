@@ -171,7 +171,7 @@ $(document).ready(function () {
 							console.log(imagepath)
 						}
 					).catch((error) =>{
-						print(error)
+						console.log(error)
 					});
 					}
 					msg += '<p class="botResult"><img  id="imgur_img" width="200" height="124" src="' + imagepath + '/"></p><div class="clearfix"></div>';

@@ -550,8 +550,14 @@ mybot .suggestion span:last-child {
   mybot .chatCont {
     height: 70% !important;
   }
+
+
 }
 
+img {
+  max-width:100%;
+  height:auto;
+}
 .card {
   border-radius: 25px;
   border: 0.5px solid lightgrey;
