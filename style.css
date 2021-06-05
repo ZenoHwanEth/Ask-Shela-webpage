@@ -142,6 +142,7 @@ a:focus {
   padding: 2% 2%;
   background-color:#6E6A6F;
   margin: 20px 15%;
+  align-content: center;
   text-align: center;
   color: white;
 }
@@ -192,6 +193,20 @@ a:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+}
+
+.align-horizontal{
+  display: block;
+  align-items: center;
+}
+
+.link{
+  color:white
+}
+
+.link:hover{
+  color:white;
+  text-decoration: underline;
 }
 
 /* Demo end */
