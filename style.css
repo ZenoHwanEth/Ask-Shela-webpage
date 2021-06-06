@@ -112,13 +112,52 @@ a:focus {
 .panel{
   border: white solid 1px;
   background-color: #47424a;
-  padding: 10px;
   color: #c16580;
-  margin: 2px 5%!important;
   text-align:left;
   font-size: 15px;
 }
 
+.panel-button{
+  background-color: #47424a;
+  color: #c16580;
+  border: white solid 1px;
+  font-size: 15px;
+}
+
+.panel-item{
+  margin: 0rem 3rem
+}
+
+.accordion-button:not(.collapsed){
+  color: #c16580;
+  background-color: #47424a;
+}
+
+.accordion-item{
+  background-color: #47424a;
+  color: white;
+  border-color: white;
+  text-align: left;
+}
+
+.accordion-body p,ul{
+  margin-top: 15px;
+}
+li{
+  line-height: 24px;
+}
+
+table {
+  max-width: 100%;
+  background-color: white transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: white;
+}
+
+table td, table th {
+  border: 1px solid white;
+}
 .title{
   color:white;
   margin: 20px 10px!important;
@@ -361,7 +400,7 @@ mybot .profile_div {
   position: fixed;
   bottom: 0;
   right: 10px;
-  width: 200px
+  width: 150px
 }
 
 mybot .img-profile {

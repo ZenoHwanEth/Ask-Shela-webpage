@@ -9,6 +9,7 @@
 
      
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
       <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -16,25 +17,146 @@
     <div class="container">
         <img src="img/abb.png"> 
     </div>
+
     <div class="body-bar">
       <h1 class="title">MSc (Computer Science) - School of Computer Sciences</h1>
-      <div class="panel">
-        OVERVIEW
-      </div>
-      <div class="panel">
-        ADMISSION REQUIREMENTS
-      </div>
-      <div class="panel">
-        LANGUAGE REQUIREMENTS
-      </div>
-      <div class="panel">
-        DURATIONS
-      </div>
-      <div class="panel">
-        SEMESTER INTAKE
-      </div>
-      <div class="panel">
-        FEES
+      <!-- group of panel -->
+      <div class="accordion" id="accordion-panel">
+        <!--ADMISSION REQUIREMENTS-->
+        <div class="accordion-item panel-item">
+          <h2 class="accordion-header" id="header-panel">
+            <button class="accordion-button collapsed panel-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-panel-admission-req" aria-expanded="true" aria-controls="collapse-panel-admission-req">
+                <h3 class="card-title">ADMISSION REQUIREMENTS </h3>
+            </button>
+          </h2>
+          <div id="collapse-panel-admission-req" class="accordion-collapse collapse " aria-labelledby="header-panel" data-bs-parent="#accordion-panel">
+            <div class="accordion-body">
+              <p>Applicants should possess the following:</p>
+              <p>
+                <strong>A. Bachelor's degree</strong>
+              </p>
+              <p>
+                1. CGPA of at least 2.75 / 4.00; or
+              </p>
+              <p>
+                2. CGPA between 2.50 - 2.74 with the following additional conditions: or
+              </p>
+              <p style="padding-left: 30px;">
+                a) Research experience for at least one year; or
+                <br />b) Work experience in related field for at least one year; or
+                <br />c) At least one (1) academic publication in the relevant field; or
+                <br />d) Grade B for major / elective courses; or
+                <br />e) Grade B+ for final year project</p>
+              <p>3. CGPA between 2.00 - 2.49 (Bachelor's Degree with Honours) with the following additional conditions: or</p>
+              <p style="padding-left: 30px;">
+                a) Research experience for at least five (5) years; or
+                <br />b) Work experience in related field for at least five (5) years; AND
+                <br />c) At least one (1) academic publication in the relevant field; or
+                <br />d) Grade B for major / elective courses; or
+                <br />e) Grade B+ for final year project</p>
+              <p><strong>B. APEL A (Level 7)</strong></p>
+            </div>
+          </div>
+        </div><!--ADMISSION REQUIREMENTS END-->
+
+        <!--Language requirements-->
+        <div class="accordion-item panel-item">
+          <h2 class="accordion-header" id="header-panel">
+            <button class="accordion-button collapsed panel-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-panel-language-req" aria-expanded="true" aria-controls="collapse-panel-language-req">
+                <h3 class="card-title">LANGUAGE REQUIREMENTS </h3>
+            </button>
+          </h2>
+          <div id="collapse-panel-language-req" class="accordion-collapse collapse " aria-labelledby="header-panel" data-bs-parent="#accordion-panel">
+            <div class="accordion-body">
+              <p>(Applicable for International Applicants Only)</p>
+                <ul>
+                <li>A minimum score of 35 in Internet-based TOEFL (Test of English as a Foreign Language);&nbsp;or</li>
+                <li>A minimum of Band 5 in IELTS (International English Language Testing System); or</li>
+                <li>A minimum score of 154 in Cambridge English Advance (CAE); or</li>
+                <li>A minimum score of 154 in Cambridge Proficiency Advance (CPE); or</li>
+                <li>A minimum score of 36 in Pearson Test of English (PTE); or</li>
+                <li>A minimum of Band 2 in MUET (Malaysian University English Test)</li>
+                </ul>
+                <p>Exemption can be given if:</p>
+                <ul>
+                <li>English is the candidate's mother tongue or National Language; or</li>
+                <li>The candidate graduated from an Institution of Higher Learning in which the medium of instruction is English</li>
+                </ul>
+            </div>
+          </div>
+        </div><!--Language requirements END-->
+
+        <!--Duration-->
+        <div class="accordion-item panel-item">
+          <h2 class="accordion-header" id="header-panel">
+            <button class="accordion-button collapsed panel-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-panel-durations" aria-expanded="true" aria-controls="collapse-panel-durations">
+                <h3 class="card-title">DURATIONS </h3>
+            </button>
+          </h2>
+          <div id="collapse-panel-durations" class="accordion-collapse collapse " aria-labelledby="header-panel" data-bs-parent="#accordion-panel">
+            <div class="accordion-body">
+              <ul>
+                <li>Full-time: Min 3 semesters / Max 6 semesters</li>
+              </ul>
+            </div>
+          </div>
+        </div><!--Duration END-->
+
+        <!--Duration-->
+        <div class="accordion-item panel-item">
+          <h2 class="accordion-header" id="header-panel">
+            <button class="accordion-button collapsed panel-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-panel-semester-intake" aria-expanded="true" aria-controls="collapse-panel-semester-intake">
+                <h3 class="card-title">SEMESTER INTAKE </h3>
+            </button>
+          </h2>
+          <div id="collapse-panel-semester-intake" class="accordion-collapse collapse " aria-labelledby="header-panel" data-bs-parent="#accordion-panel">
+            <div class="accordion-body">
+              <ul>
+                <li>February &amp; September</li>
+                </ul>
+            </div>
+          </div>
+        </div><!--Duration END-->
+
+        <!--Duration-->
+        <div class="accordion-item panel-item">
+          <h2 class="accordion-header" id="header-panel">
+            <button class="accordion-button collapsed panel-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-panel-fee" aria-expanded="true" aria-controls="collapse-panel-fee">
+                <h3 class="card-title">FEES </h3>
+            </button>
+          </h2>
+          <div id="collapse-panel-fee" class="accordion-collapse collapse " aria-labelledby="header-panel" data-bs-parent="#accordion-panel">
+            <div class="accordion-body">
+              <table style="height: 163px; width: 564px;" border="1" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                <td style="text-align: center; width: 247px;">Malaysian (MYR)</td>
+                <td style="text-align: center; width: 246px;">International (USD)</td>
+                </tr>
+                <tr>
+                <td style="width: 247px;" valign="top">
+                <ul>
+                <li>Registration Fee : 340.00</li>
+                <li>Tuition Fee : 270.00 X&nbsp; Units = 11,880.00</li>
+                <li>Convocation Fee : 200.00</li>
+                </ul>
+                </td>
+                <td style="width: 246px;" valign="top">
+                <ul>
+                <li>Registration Fees : 227.50</li>
+                <li>Personal Bond : 1,000.00</li>
+                <li>Tuition Fees : 101.25 X 44 Units&nbsp;= 4,455.00</li>
+                <li>Convocation Fee : 50.00</li>
+                </ul>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+                <p style="text-align: justify;">** Fees are subject to change</p>
+            </div>
+          </div>
+        </div><!--Duration END-->
+        
       </div>
     </div>
 
@@ -97,6 +219,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-storage.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 
     
