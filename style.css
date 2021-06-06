@@ -398,7 +398,7 @@ mybot .resultDiv .userEnteredText:before {
 
 mybot .profile_div {
   position: fixed;
-  bottom: 0;
+  bottom: -50;
   right: 10px;
   width: 150px
 }
@@ -618,6 +618,10 @@ mybot .suggestion span:last-child {
     width: 100% !important;
   }
 
+  .body-bar, .btm-body-bar, .btm-body-bar-2{
+    width: 90%;
+    margin: 20px 5%;
+  }
 
 }
 
