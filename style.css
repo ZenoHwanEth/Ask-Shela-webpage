@@ -275,7 +275,7 @@ mybot .chatCont {
   right: 0;
   background: #efe7dd url("");
   border-top-left-radius: 3px;
-  z-index: 1;
+  z-index: 10;
   display: none;
 }
 
