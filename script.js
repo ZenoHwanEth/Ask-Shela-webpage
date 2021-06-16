@@ -146,7 +146,7 @@ $(document).ready(function () {
 	} 
 	//------------------------------------ Set bot response in result_div -------------------------------------
 	 function setBotResponse(val) {
-		setTimeout(async function () {
+		setTimeout(async function () {	
 
 			if ($.trim(val) == '' || val == 'error') { //if there is no response from bot or there is some error
 				val = 'Sorry I wasn\'t able to understand your Query. Let\' try something else!'
@@ -256,7 +256,7 @@ $(document).ready(function () {
 				}
 			}
 			scrollToBottomOfResults();
-		}, 1000);
+		}, 1200);
 	}
 
 
