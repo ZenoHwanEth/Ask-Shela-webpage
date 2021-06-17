@@ -119,15 +119,7 @@ $(document).ready(function () {
 			}),
 			success: function (data, textStatus, xhr) {
 
-				if (Object.keys(data).length !== 0) {
-					for(j =0; j < Object.keys(data).length; j++)
-						for (i = 0; i < Object.keys(data[j]).length; i++) {
-							if (Object.keys(data[j])[i] == "buttons") { //check if buttons(suggestions) are present.
-								addSuggestion(data[j]["buttons"])
-							}
-
-						}
-				}
+				console.log(data)
 				setBotResponse(data);
 
 			},
@@ -154,7 +146,7 @@ $(document).ready(function () {
 				$(BotResponse).appendTo('#result_div');
 			} else {
 			//if we get message from the bot succesfully
-			var hasimage=false;
+			
 			for (var i = 0; i < val.length; i++) {
 				var msg = "";
 				
@@ -182,6 +174,17 @@ $(document).ready(function () {
 				BotResponse = msg;
 				$(BotResponse).appendTo('#result_div');
 				
+			}
+
+			
+			if (Object.keys(val).length !== 0) {
+				for(j =0; j < Object.keys(val).length; j++)
+					for (i = 0; i < Object.keys(val[j]).length; i++) {
+						if (Object.keys(val[j])[i] == "buttons") { //check if buttons(suggestions) are present.
+							addSuggestion(val[j]["buttons"])
+						}
+
+					}
 			}
 
 			var enlarge_modal = document.getElementById("enlarge_modal");
@@ -256,7 +259,7 @@ $(document).ready(function () {
 				}
 			}
 			scrollToBottomOfResults();
-		}, 1450);
+		}, 1000);
 	}
 
 
