@@ -15,16 +15,24 @@ $(document).ready(function () {
 	// Initialize Firebase
 	firebase.initializeApp(firebaseConfig);
 	firebase.analytics();
-
+	var avatar_path="img/happy.jpg"
 	var imageStorage = firebase.storage().ref().child('AskShela_resources');
 	
+	await imageStorage.child("avatar.jpg").getDownloadURL().then(
+		(url)=> {
+			avatar_path = url
+		}
+	).catch((error) =>{
+		console.log(error)
+	});
 	var suggestion_toggle =false;
+	
 
 	//Widget Code
 	var bot = '<div class="chatCont" id="chatCont">' +
 		'<div class="bot_profile">' +
 		'<div class="top-col"></div>' +
-		'<img src="img/happy.jpg" class="bot_p_img">' +	
+		'<img src="'+avatar_path+'" class="bot_p_img">' +	
 		'<div class="close">' +
 		'<i class="fa fa-times" aria-hidden="true"></i>' +
 		'</div>' +
@@ -43,7 +51,7 @@ $(document).ready(function () {
 		'<div class="profile_div">' +
 		'<div class="row">' +
 		'<div class="col-hgt col-sm-offset-2">' +
-		'<img  id="chatbot_icon" src="img/happy.jpg" class="img-circle img-profile">' +
+		'<img  id="chatbot_icon" src="'+avatar_path+'" class="img-circle img-profile">' +
 		'</div><!--col-hgt end-->' +
 		'<div class="col-hgt">' +
 		'<div class="chat-txt">' +
@@ -160,7 +168,6 @@ $(document).ready(function () {
 					await imageStorage.child(imageref).getDownloadURL().then(
 						(url)=> {
 							imagepath = url
-							console.log(imagepath)
 						}
 					).catch((error) =>{
 						console.log(error)
@@ -253,7 +260,7 @@ $(document).ready(function () {
 
 				if(suggestions[i].title == "Main Menu")
 				{
-					$('<span class="sugg-options red">' + suggestions[i].title + '<div style="display: none; ">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
+					$('<span class="sugg-options' + ' red">' + suggestions[i].title + '<div style="display: none; ">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
 				}else{
 					$('<span class="sugg-options">' + suggestions[i].title + '<div style="display: none;">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
 				}
