@@ -17,8 +17,9 @@ $(document).ready(function () {
 	firebase.analytics();
 	var avatar_path="img/happy.jpg"
 	var imageStorage = firebase.storage().ref().child('AskShela_resources');
+
 	
-	await imageStorage.child("avatar.jpg").getDownloadURL().then(
+	imageStorage.child("avatar.jpg").getDownloadURL().then(
 		(url)=> {
 			avatar_path = url
 		}
