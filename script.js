@@ -128,7 +128,6 @@ $(document).ready(function () {
 			}),
 			success: function (data, textStatus, xhr) {
 
-				console.log(data)
 				setBotResponse(data);
 
 			},
@@ -177,7 +176,15 @@ $(document).ready(function () {
 					msg += '<p class="botResult"><img  id="imgur_img" width="200" height="124" src="' + imagepath + '/"></p><div class="clearfix"></div>';
 				} 
 				else if(val[i]["text"])	{
-					msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
+					if(/^Here are the QnA main menu:/.test(val[i]["text"]))
+					{
+						console.log("hello")
+						msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
+					}else{
+						msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
+					}
+
+					
 				}
 				BotResponse = msg;
 				$(BotResponse).appendTo('#result_div');
@@ -259,12 +266,9 @@ $(document).ready(function () {
 			// Loop through suggestions
 			for (i = 0; i < suggLength; i++) {
 
-				if(suggestions[i].title == "Main Menu")
-				{
-					$('<span class="sugg-options' + ' red">' + suggestions[i].title + '<div style="display: none; ">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
-				}else{
-					$('<span class="sugg-options">' + suggestions[i].title + '<div style="display: none;">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
-				}
+				
+				$('<span class="sugg-options' + suggestions[i].title + '<div style="display: none;">'+ suggestions[i].payload + '</div>' + '</span>').appendTo('.suggestion');
+				
 			}
 			scrollToBottomOfResults();
 		}, 500);
