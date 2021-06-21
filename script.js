@@ -15,25 +15,27 @@ $(document).ready(function () {
 	// Initialize Firebase
 	firebase.initializeApp(firebaseConfig);
 	firebase.analytics();
-	var avatar_path="img/happy.jpg"
+	var avatar_path=""
 	var imageStorage = firebase.storage().ref().child('AskShela_resources');
 
+	var suggestion_toggle =false;
 	
-	imageStorage.child("avatar.jpg").getDownloadURL().then(
+	(async()=>{
+		await imageStorage.child("avatar.jpg").getDownloadURL().then(
 		(url)=> {
-			avatar_path = url
+			avatar_path = url;
+			document.getElementById('chatbot_main_icon').src=avatar_path;
+			document.getElementById('chatbot_icon').src=avatar_path;
 		}
 	).catch((error) =>{
 		console.log(error)
 	});
-	var suggestion_toggle =false;
-	
-
+	})()
 	//Widget Code
 	var bot = '<div class="chatCont" id="chatCont">' +
 		'<div class="bot_profile">' +
 		'<div class="top-col"></div>' +
-		'<img src="'+avatar_path+'" class="bot_p_img">' +	
+		'<img id="chatbot_main_icon" src="'+avatar_path+'" class="bot_p_img">' +	
 		'<div class="close">' +
 		'<i class="fa fa-times" aria-hidden="true"></i>' +
 		'</div>' +
@@ -63,6 +65,7 @@ $(document).ready(function () {
 		'</div><!--profile_div end-->';
 
 	$("mybot").html(bot);
+
 
 	// ------------------------------------------ Toggle chatbot -----------------------------------------------
 	$('.img-profile').click(function () {
@@ -178,7 +181,6 @@ $(document).ready(function () {
 				else if(val[i]["text"])	{
 					if(/^Here are the QnA main menu:/.test(val[i]["text"]))
 					{
-						console.log("hello")
 						msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
 					}else{
 						msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
