@@ -25,7 +25,8 @@ img {
 a,
 a:hover,
 a:focus {
-  text-decoration: none;
+  text-decoration: underline;
+  color:rgb(207, 102, 207);
   outline: none;
 }
 

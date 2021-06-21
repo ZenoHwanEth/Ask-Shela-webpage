@@ -17,9 +17,12 @@ $(document).ready(function () {
 	firebase.analytics();
 	var avatar_path=""
 	var imageStorage = firebase.storage().ref().child('AskShela_resources');
+	var database = firebase.database().ref();
 
 	var suggestion_toggle =false;
-	
+	var newstudentpadletlink;
+	var potentialstudentpadletlink;
+
 	(async()=>{
 		await imageStorage.child("avatar.jpg").getDownloadURL().then(
 		(url)=> {
@@ -27,10 +30,21 @@ $(document).ready(function () {
 			document.getElementById('chatbot_main_icon').src=avatar_path;
 			document.getElementById('chatbot_icon').src=avatar_path;
 		}
+	
 	).catch((error) =>{
 		console.log(error)
 	});
+
+	await database.child("newstudentpadletlink").get().then((snapshot) =>{
+		newstudentpadletlink = snapshot.val()
+	})
+
+	await database.child("potentialstudentpadletlink").get().then((snapshot) =>{
+		potentialstudentpadletlink = snapshot.val()
+	})
 	})()
+
+	
 	//Widget Code
 	var bot = '<div class="chatCont" id="chatCont">' +
 		'<div class="bot_profile">' +
@@ -181,7 +195,7 @@ $(document).ready(function () {
 				else if(val[i]["text"])	{
 					if(/^Here are the QnA main menu:/.test(val[i]["text"]))
 					{
-						msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
+						msg += '<p class="botResult">' + val[i].text + '\nFor more detail:\n'+ '<a href=\"' + potentialstudentpadletlink +'\" target="_blank" >Padlet link for potential student</a>\n'+ '<a href=\"' + newstudentpadletlink +'\" target="_blank" >Padlet link for new student</a>' +'</p><div class="clearfix"></div>';
 					}else{
 						msg += '<p class="botResult">' + val[i].text + '</p><div class="clearfix"></div>';
 					}
