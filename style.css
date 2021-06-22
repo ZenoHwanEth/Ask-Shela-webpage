@@ -580,6 +580,20 @@ mybot .light_purple:hover {
   color: white;
 }
 
+mybot .suggestion .verylight_purple{
+  border: 2px solid rgb(235, 130, 235);
+  color: rgb(235, 130, 235);
+}
+
+
+mybot .verylight_purple:hover {
+  background:rgb(235, 130, 235);
+  color: white;
+}
+
+
+
+
 mybot .sugg-options{
   margin-left: 2px;
 }
